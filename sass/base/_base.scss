@@ -1,0 +1,29 @@
+@use "../abstract" as *;
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+html {
+  font-size: 62.5%;
+  @include respond (maxWidth768){
+    font-size: 50%;
+  }
+}
+
+html,
+body {
+  scroll-behavior: smooth;
+}
+
+body {
+  color: $colorBg;
+  font-size: $defaultFontSize;
+}
+a {
+  text-decoration: none;
+}
+li {
+  list-style: none;
+}

@@ -1,0 +1,45 @@
+@use "../abstract" as *;
+.subHeading {
+  font-size: 1.4rem;
+  color: $colorPrimary;
+  font-weight: 600;
+  text-transform: uppercase;
+  margin-bottom: 0;
+  letter-spacing: 0.1rem;
+  font-family: $fontPrimary;
+  @include respond (maxWidth768){
+    text-align: center;
+  }
+}
+.headingPrimary {
+  font-size: 4.8rem;
+  color: $colorPrimary;
+  font-weight: 700;
+  letter-spacing: 0.2rem;
+  span{
+    color: $colorSecondary;
+  }
+  @include respond(maxWidth992){
+    font-size: 3.6rem;
+    letter-spacing: 0.1rem;
+  }
+  @include respond(maxWidth768){
+    font-size: 3.2rem;
+    letter-spacing: 0.05rem;
+    br{
+      display: none;
+    }
+  }
+}
+.headingTertiary {
+  font-size: 2.4rem;
+  color: $colorWhite;
+  font-weight: 500;
+  margin-bottom: 20px;
+  @include respond (mmaxWidth992){
+    font-size: 3.6rem;
+  }
+  @include respond (maxWidth768){
+    font-size: 3.2rem;
+  }
+}

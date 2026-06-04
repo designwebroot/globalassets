@@ -1,0 +1,124 @@
+@use "../abstract" as *;
+
+.head {
+  margin-bottom: 3rem;
+}
+.space{
+  height: 5rem;
+  @include respond (maxWidth768){
+    height: 3rem;
+  }
+}
+.mTop {
+  margin-top: 10rem;
+  @include respond (maxWidth992){
+    margin-top: 5rem;
+  }
+  @include respond (maxWidth768){
+    margin-top: 3rem;
+  }
+}
+
+.mBottom {
+  margin-bottom: 10rem;
+  @include respond (maxWidth992){
+    margin-bottom: 5rem;
+  }
+  @include respond (maxWidth768){
+    margin-bottom: 3rem;
+  }
+}
+
+.pTop {
+  padding-top: 10rem;
+  @include respond (maxWidth992){
+    padding-top: 5rem;
+  }
+  @include respond (maxWidth768){
+    padding-top: 3rem;
+  }
+}
+
+.pBottom {
+  padding-bottom: 10rem;
+  @include respond (maxWidth992){
+    padding-bottom: 5rem;
+  }
+  @include respond (maxWidth768){
+    padding-bottom: 3rem;
+  }
+}
+.row {
+  row-gap: 3rem;
+}
+.primaryList {
+  margin-bottom: 0;
+  li {
+    margin-bottom: 1rem;
+    position: relative;
+    &::before {
+      content: "\f0a4";
+      color: $colorPrimary;
+      position: absolute;
+      left: -2.5rem;
+    top: 3px;
+      font-family: "Font Awesome 6 Free";
+    }
+    &:last-child {
+      margin-bottom: 0;
+    }
+  }
+}
+.slick-prev:before, .slick-next:before {
+    font-family:normal;
+    font-family: normal;
+    border: 1.5px solid;
+    width: 4rem;
+    display: inline-block;
+    aspect-ratio: 1 / 1;
+    place-content: center;
+    line-height: 0;
+    border-radius: 100%;
+}
+.innerHero{
+  height: 35rem;
+  overflow: hidden;
+  position: relative;
+  h1{
+    font-size: 10rem;
+    color: $colorWhite;
+    text-transform: uppercase;
+    position: absolute;
+    line-height: 0.6;
+    bottom: 0;
+    z-index: 2;
+    font-weight: 700;
+    text-align: center;
+    width: 100%; 
+  @include respond (maxWidth992){
+    font-size: 8rem;
+  }
+  @include respond (maxWidth768){
+    font-size: 6rem;
+  }
+  }
+  &::after{
+    background: rgba($colorBlack, 0.3);
+    bottom: 0;
+    content: "";
+    display: block;
+    height: 100%;
+    left: 0;
+    opacity: 1;
+    position: absolute;
+    right: 0;
+    top: auto;
+    width: 100%;
+    z-index: 1;
+  }
+  img{
+    height: 100%;
+    width: 100%;
+    object-fit: cover;
+  }
+}
