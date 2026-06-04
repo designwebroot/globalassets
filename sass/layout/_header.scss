@@ -1,0 +1,305 @@
+@use "../abstract" as *;
+
+header {
+  padding: 1rem;
+  background: rgba($colorWhite, 1);
+  top: 0;
+  left: 0;
+  width: 100%;
+  position: relative;
+  z-index: 9;
+  transition: 0.6s;
+
+  @include respond (maxWidth992) {
+    position: static;
+  }
+
+  @include respond (minmax992-12) {
+    .container {
+      max-width: 100%;
+    }
+  }
+
+  .navbar {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+
+    .brand {
+      .logo {
+        display: block;
+        width: 25rem;
+        transition: $transition;
+
+        @include respond(maxWidth1400) {
+          width: 20rem;
+        }
+
+        @media screen and (min-width:992.1px) and (max-width:1100px) {
+          width: 17rem;
+        }
+
+        @include respond(maxWidth575) {
+          width: 15rem;
+        }
+      }
+    }
+
+    .menuToggle {
+      @include respond(minWidth992) {
+        display: none;
+      }
+
+      font-size: 28px;
+      color: $colorPrimary;
+      cursor: pointer;
+    }
+
+    .navWrapper {
+      @include respond(maxWidth992) {
+        position: fixed;
+        top: 0;
+        right: -320px;
+        width: 320px;
+        max-width: 100%;
+        height: 100vh;
+        background: $colorPrimary;
+        padding: 25px;
+        transition: $transition;
+        z-index: 9999;
+        overflow-y: auto;
+
+        &.active {
+          right: 0;
+        }
+      }
+
+      .closeBtn {
+        position: absolute;
+        top: 15px;
+        right: 20px;
+        color: $colorWhite;
+        font-size: 35px;
+        cursor: pointer;
+        line-height: 1;
+
+        @include respond(minWidth992) {
+          display: none;
+        }
+      }
+
+      .navList {
+        display: flex;
+        align-items: center;
+        list-style: none;
+        padding-left: 0;
+        margin-bottom: 0;
+        gap: 25px;
+
+        @include respond (maxWidth1400) {
+          gap: 13px;
+        }
+
+        @media screen and (min-width:992.1px) and (max-width:1100px) {
+          gap: 10px;
+        }
+
+        @include respond(maxWidth992) {
+          flex-direction: column;
+          align-items: flex-start;
+          gap: 0;
+          margin-top: 50px;
+        }
+
+        .register {
+          @include respond (maxWidth992) {
+            display: none;
+          }
+
+          a {
+            @include respond(minWidth992) {
+              background: $colorPrimary;
+              border: 1px solid $colorPrimary;
+              display: inline-block;
+              color: $colorWhite;
+              padding: 10px 30px;
+              font-size: 14px;
+              text-transform: uppercase;
+              font-weight: 600;
+              border-radius: 50px;
+            }
+            @include respond (maxWidth1200){
+              padding: 5px 20px;
+            }
+          }
+        }
+
+        .navItem {
+          position: relative;
+
+          @include respond(maxWidth992) {
+            width: 100%;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+          }
+
+          .navLink {
+            color: $colorBg;
+            text-decoration: none;
+            font-weight: 600;
+            display: flex;
+            align-items: center;
+            gap: 6px;
+            padding: 10px 0;
+            transition: $transition;
+
+            @media screen and (min-width:992.1px) and (max-width:1100px) {
+              font-size: 1.4rem;
+            }
+
+            @include respond (maxWidth992) {
+              color: $colorWhite;
+            }
+
+            @include respond (minWidth992) {
+              &:hover {
+                color: $colorPrimary;
+              }
+            }
+
+            @include respond(maxWidth992) {
+              width: 100%;
+              justify-content: space-between;
+              padding: 16px 0;
+            }
+          }
+
+          &.dropdown {
+            i {
+              font-size: 8px;
+            }
+          }
+
+          .dropdownMenu {
+            position: absolute;
+            top: 100%;
+            padding-left: 0;
+            margin-bottom: 0;
+            left: 0;
+            background: $colorWhite;
+            min-width: 220px;
+            border-radius: 8px;
+            overflow: hidden;
+            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
+            display: none;
+
+            @include respond(maxWidth992) {
+              position: static;
+              width: 100%;
+              box-shadow: none;
+              border-radius: 0;
+              display: none;
+              background: $colorBlack;
+            }
+
+            li {
+              width: 100%;
+
+              &:not(:last-child) {
+                a {
+                  border-bottom: 1px solid rgba(0, 0, 0, 0.1);
+                }
+              }
+
+              a {
+                color: #111;
+                padding: 1rem;
+                display: block;
+                font-weight: 600;
+
+                @include respond(maxWidth992) {
+                  color: $colorWhite;
+                  padding-left: 20px;
+
+                  &:hover {
+                    background: #374151;
+                    color: $colorWhite;
+                  }
+                }
+
+                &:hover {
+                  background: #f3f4f6;
+                  color: #111;
+                }
+              }
+            }
+          }
+
+          // For Desktop on Hover
+          @media screen and (min-width: 992px) {
+            &.dropdown:hover .dropdownMenu {
+              display: block;
+            }
+          }
+        }
+
+        .mobileNum {
+          a {
+            background: #fff;
+            padding: 1.5rem 3rem;
+            margin-top: 2rem;
+            display: inline-block;
+            border-radius: 3rem;
+            color: #1b2961;
+            font-weight: 700;
+          }
+
+          @include respond (minWidth992) {
+            display: none;
+          }
+        }
+      }
+    }
+  }
+
+  &.fixed {
+    background: rgba($colorWhite, 1);
+    position: fixed;
+    z-index: 999;
+    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
+    z-index: 9999;
+
+    .brand .logo {
+      width: 20rem;
+
+      @include respond(maxWidth1400) {
+        width: 15rem;
+      }
+
+      @media screen and (min-width:992.1px) and (max-width:1100px) {
+          width: 12rem;
+        }
+
+      @include respond(maxWidth575) {
+        width: 12rem;
+      }
+    }
+  }
+}
+
+.overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.5);
+  opacity: 0;
+  visibility: hidden;
+  transition: $transition;
+  z-index: 998;
+
+  &.active {
+    opacity: 1;
+    visibility: visible;
+  }
+}
